@@ -49,12 +49,9 @@ funkController.deleteItems = (req, res, next) => {
 funkController.getRecipes = async (req, res, next) => {
   console.log('Hit getRecipes!!', req.body);
 
-  let keyIndex = 3; //2;
+  let keyIndex = 0; //2;
   const apiKeys = [
-    '15b3f4802c0e4563b2bded336d9fe84e',
-    'f470747f26984405bc334aa91f91c166',
-    '2cb2288f93d441528099bd7df94f6b1a',
-    '314a08da40d348e69be44f96ef554b44',
+    'f02858b6ebaa4661b821b11a81417390'
   ];
   const howManyRecipes = 5;
 
@@ -89,7 +86,11 @@ funkController.getRecipes = async (req, res, next) => {
 
   console.log('commaItems:', commaItems);
 
+<<<<<<< HEAD
   //if (!commaItems.length) throw new Error('No items to use!');
+=======
+  // if (!commaItems.length) throw new Error('No items to use!');
+>>>>>>> 8ca3527 (API functionality achieved)
   let recipesListFinal = [];
 
   while (extras.length) {

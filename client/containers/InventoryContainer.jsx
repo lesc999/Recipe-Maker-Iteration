@@ -35,7 +35,7 @@ function InventoryContainer() {
   }
 
   function getRecipes() {
-    console.log(inventory);
+    console.log("inv", inventory);
     axios
       .post('./api/recipes', inventory)
       .then((res) => {

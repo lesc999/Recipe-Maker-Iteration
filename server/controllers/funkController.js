@@ -89,7 +89,7 @@ funkController.getRecipes = async (req, res, next) => {
 
   console.log('commaItems:', commaItems);
 
-  if (!commaItems.length) throw new Error('No items to use!');
+  //if (!commaItems.length) throw new Error('No items to use!');
   let recipesListFinal = [];
 
   while (extras.length) {

@@ -49,9 +49,13 @@ funkController.deleteItems = (req, res, next) => {
 funkController.getRecipes = async (req, res, next) => {
   console.log('Hit getRecipes!!', req.body);
 
-  let keyIndex = 0; //2;
+  let keyIndex = 3; //2;
   const apiKeys = [
-    'f02858b6ebaa4661b821b11a81417390'
+    'f02858b6ebaa4661b821b11a81417390',
+    '44bd1c5c07cd4e6c9453253045409cac',
+    '3646e9cc47d3411f9a8935b500812191',
+    '481e5f55d1b74e77b6a2fc9ae79c9d86',
+    '4cf36a6587f14b0696a49a36121f1275'
   ];
   const howManyRecipes = 5;
 
@@ -78,12 +82,13 @@ funkController.getRecipes = async (req, res, next) => {
     console.log('extras:', extras);
   } else {
     itemsNames = useThese;
+    extras = useThese
   }
 
   console.log('itemsNames:', itemsNames);
 
   let commaItems = itemsNames.join(',+');
-
+  
   console.log('commaItems:', commaItems);
 
 <<<<<<< HEAD
@@ -102,7 +107,9 @@ funkController.getRecipes = async (req, res, next) => {
       const recipesListData = await fetch(url);
       const recipesList = await recipesListData.json();
 
-      if (!Array.isArray(recipesList)) throw new Error('Invalid recipes list');
+      // if (!Array.isArray(recipesList)) throw new Error('Invalid recipes list');
+
+      if (recipesList.length===0) throw new Error('Invalid recipes list');
 
       console.log('recipesList:', recipesList);
       if (recipesList.length >= 5) {

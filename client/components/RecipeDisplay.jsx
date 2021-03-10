@@ -6,6 +6,8 @@ import { useInventory, useSetInventory } from '../contexts/InventoryContexts';
 
 function RecipeDisplay(props) {
   const inventory = useInventory();
+  console.log("instructions", props.recipe.instructions)
+  if(!props.recipe.instructions){props.recipe.instructions = "Psh, figure it out."}
 
   // const dietLabels = [vegetarian, vegan, glutenFree, dairyFree].reduce((acc, ele, index) => {
   //   if (props[ele] === false) {

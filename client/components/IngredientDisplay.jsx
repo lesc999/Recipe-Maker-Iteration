@@ -80,7 +80,7 @@ function IngredientDisplay({ itemName, use, _id }) {
       [itemName]: { itemName: itemName, bucketNumber: inventory[itemName].bucketNumber, use: boolean, _id: _id },
     };
 
-    console.log(updatedIng);
+    // console.log(updatedIng);
 
     // Update database
     // axios

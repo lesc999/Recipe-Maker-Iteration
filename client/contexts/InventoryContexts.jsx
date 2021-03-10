@@ -14,7 +14,7 @@ function useSetInventory() {
 }
 
 function InventoryProvider({ children }) {
-  console.log("children", children)
+  // console.log("children", children)
   const [inventory, setInventories] = useState({});
 
   function setInventory(newState) {

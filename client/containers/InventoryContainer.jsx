@@ -24,18 +24,29 @@ function InventoryContainer() {
 
   const InventoryBuckets = [];
 
-  for (let i = 0; i < 3; i++) {
-    const bucket = Object.values(inventory).reduce((acc, ele) => {
-      if (ele.bucketNumber == i) {
+  // for (let i = 0; i < 3; i++) {
+  //   const bucket = Object.values(inventory).reduce((acc, ele) => {
+  //     if (ele.bucketNumber == i) {
+  //       acc[ele.itemName] = ele;
+  //     }
+  //     return acc;
+  //   }, {});
+  //   InventoryBuckets.push(<InventoryBucket key={`ib${i}`} bucket={bucket} bucketNumber={i} />);
+  // }
+
+  
+  const bucket = Object.values(inventory).reduce((acc, ele) => {
+        console.log('acc: ', acc)
         acc[ele.itemName] = ele;
-      }
-      return acc;
-    }, {});
-    InventoryBuckets.push(<InventoryBucket key={`ib${i}`} bucket={bucket} bucketNumber={i} />);
-  }
+        return acc;
+  }, {});
+  console.log('bucket:', bucket)
+  InventoryBuckets.push(<InventoryBucket key={`ib${0}`} bucket={bucket} bucketNumber={0} />);
+  
+
 
   function getRecipes() {
-    console.log("inv", inventory);
+    // console.log("inv", inventory);
     axios
       .post('./api/recipes', inventory)
       .then((res) => {

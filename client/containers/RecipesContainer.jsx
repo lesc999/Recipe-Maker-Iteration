@@ -15,13 +15,15 @@ function RecipesContainer() {
 
   useEffect(() => {
     // console.log('inventory', inventory)
-    axios
-      .post('./api/recipes', inventory)
-      .then((res) => {
-        // console.log('res.data', res.data);
-        setRecipe(res.data);
-      })
-      .catch((err) => console.log(err));
+    if (!recipe) {
+      axios
+        .post('./api/recipes', inventory)
+        .then((res) => {
+          // console.log('res.data', res.data);
+          setRecipe(res.data);
+        })
+        .catch((err) => console.log(err));
+    }
   }, []);
 
   if (recipe === null) {

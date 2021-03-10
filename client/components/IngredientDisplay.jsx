@@ -38,57 +38,20 @@ function IngredientDisplay({ itemName, use, _id }) {
   }
 
   /**
-   * This function will update the ingredient's bucket number.
-   * It will send PUT request to the server to update ther server as well as update its state in the DOM
-   * @param {*} upOrDown This takes a parameter 'up' or 'down' depending on which way user clicks.
-   */
-  function moveUpOrDown(upOrDown) {
-    let bucketNum = inventory[itemName].bucketNumber;
-
-    if (upOrDown === 'up' && bucketNum === 0) window.alert('Already in the primary');
-    if (upOrDown === 'down' && bucketNum === 2) window.alert('Already in the tertiary');
-
-    if (upOrDown === 'down' && bucketNum < 2) bucketNum += 1;
-    if (upOrDown === 'up' && bucketNum > 0) bucketNum -= 1;
-
-    let updatedIng = { [itemName]: { itemName: itemName, bucketNumber: bucketNum, use: use, _id: _id } };
-
-    // Update server
-    axios
-      .put('/api/inventory', updatedIng)
-      .then((res) => console.log(`${itemName} has been moved to ${bucketNum}`))
-      .catch((e) => {
-        console.log('err: move update is not completed');
-      });
-
-    // Update state
-    let newState = { ...inventory, ...updatedIng };
-    setInventory(newState);
-  }
-
-  /**
    * This function will update
    *
    */
   function checkMarked() {
     let boolean;
 
-    if (inventory[itemName].use === true) boolean = false;
-    if (inventory[itemName].use === false) boolean = true;
+    // boolean REPRESENTS THE "Checked" STATUS OF THE INGREDIENT
+    boolean = !inventory[itemName].use
 
     let updatedIng = {
       [itemName]: { itemName: itemName, bucketNumber: inventory[itemName].bucketNumber, use: boolean, _id: _id },
     };
 
-    // console.log(updatedIng);
-
-    // Update database
-    // axios
-    //   .put('api/inventory', updatedIng)
-    //   .then((res) => console.log(`${itemName} with ID:${_id} checkmark: ${boolean}`))
-    //   .catch((e) => console.log(`ERR: ingredient checkmark update is not completed `));
-
-    // Update state
+    //Update state
     let newState = { ...inventory, ...updatedIng };
     setInventory(newState);
   }
@@ -98,12 +61,6 @@ function IngredientDisplay({ itemName, use, _id }) {
       {itemName}
       <input type="checkbox" onChange={(e) => checkMarked(e)} autoComplete="on" />
       <div className="upDownButtons">
-        <button className="buttons" onClick={(e) => moveUpOrDown('up')}>
-          Up
-        </button>
-        <button className="buttons" onClick={(e) => moveUpOrDown('down')}>
-          Down
-        </button>
         <button className="buttons" onClick={(e) => deleteIng(e)}>
           X
         </button>

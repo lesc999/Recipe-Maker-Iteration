@@ -22,7 +22,7 @@ function RecipesContainer() {
         setRecipe(res.data);
       })
       .catch((err) => console.log(err));
-  }, [inventory]);
+  }, []);
 
   if (recipe === null) {
     return 'Loading...';

@@ -33,6 +33,13 @@ body {
   flex-grow: 3;
 }
 
+#formDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .bucket {
   background: rgb(224, 255, 183);
   max-width: 400px;

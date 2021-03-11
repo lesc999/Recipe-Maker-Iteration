@@ -1,7 +1,6 @@
 const Item = require('../itemModels');
 
 function frontEndParser(input) {
-  console.log(input)
   const keyName = Object.keys(input)[0];
   return input[keyName];
 }
@@ -14,13 +13,11 @@ function mongoToFrontEnd(input) {
   }
   return newObj;
 }
-const getCookieValue = (name) => {
-  return req.headers.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || ''
-}
+
 const dbController = {
   // Create new item
   createItem(req, res) {
-    let user = req.headers.cookie.replace("user=", "")
+    let user = req.headers.cookie.match('(^|;)\\s*' + "user" + '\\s*=\\s*([^;]+)')?.pop() || ''
     const newItem = frontEndParser(req.body);
     newItem.owner = user
     console.log("newitem", newItem)
@@ -37,7 +34,8 @@ const dbController = {
   
 
   findItems(req, res) {
-    let user = req.headers.cookie.replace("user=", "")
+    let user = req.headers.cookie.match('(^|;)\\s*' + "user" + '\\s*=\\s*([^;]+)')?.pop() || ''
+    console.log(user)
     Item.find({owner: user}, (err, response) => {
       if (err) {
         return res.status(400).json(err);

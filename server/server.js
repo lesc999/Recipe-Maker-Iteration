@@ -17,44 +17,20 @@ mongoose.connect(
   { useNewUrlParser: true, useUnifiedTopology: true }
 );
 mongoose.connection.once('open', () => {
-  console.log('Connected to FunkyMunch Database');
+  console.log('Connected to The Pantless Thundergoose Database');
 });
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use('/build', express.static(path.join(__dirname, '../build')));
-//Passport login
 
-// app.post('/my-login',
-//   // wrap passport.authenticate call in a middleware function
-//   function (req, res, next) {
-//     // call passport authentication passing the "local" strategy name and a callback function
-//     passport.authenticate('local', function (error, user, info) {
-//       // this will execute in any case, even if a passport strategy will find an error
-//       // log everything to console
-//       console.log(error);
-//       console.log(user);
-//       console.log(info);
-
-//       if (error) {
-//         res.status(401).send(error);
-//       } else if (!user) {
-//         res.status(401).send(info);
-//       } else {
-//         next();
-//       }
-
-//       res.status(401).send(info);
-//     })(req, res);
-//   },
-
-  // function to call once successfully authenticated
-  // function (req, res) {
-  //   res.status(200).send('logged in!');
-  // };
 
 app.get('/', (req, res) => {
+  return res.status(200).sendFile(path.join(__dirname, '../index.html'));
+});
+
+app.get('/login', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../index.html'));
 });
 

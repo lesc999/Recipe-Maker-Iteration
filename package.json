@@ -1,13 +1,14 @@
 {
   "name": "recipemaker",
-  "version": "1.0.0",
-  "author": "Han Chae, Hanji Chen, Nick Stillman, Ziyad El Baz",
-  "description": "This is wunderpus photogenicus project",
+  "version": "2.0.0",
+  "author": "Dave, Les Nathan and Weilan",
+  "description": "This is a project",
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=production nodemon server/server.js",
     "build": "NODE_ENV=production webpack",
-    "dev": "NODE_ENV=development webpack serve & nodemon server/server.js --open"
+    "dev": "NODE_ENV=development webpack serve & nodemon server/server.js --open",
+    "test": "jest --verbose"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -25,6 +26,7 @@
     "@babel/core": "^7.13.8",
     "@babel/preset-env": "^7.13.10",
     "@babel/preset-react": "^7.12.13",
+    "@shelf/jest-mongodb": "^1.2.3",
     "axios": "^0.21.1",
     "babel-loader": "^8.2.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
@@ -55,6 +57,7 @@
     "sass": "^1.32.8",
     "sass-loader": "^10.1.1",
     "style-loader": "^2.0.0",
+    "supertest": "^6.1.3",
     "webpack": "^5.24.2",
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2",

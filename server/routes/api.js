@@ -1,10 +1,14 @@
 const express = require('express');
 const funkController = require('../controllers/funkController');
 const dbController = require('../controllers/dbController');
+const loginController = require('../controllers/loginController')
 
 const router = express.Router();
 
 router.get('/inventory', dbController.findItems);
+
+router.post('/login/signup', loginController.signup);
+router.post('/login', loginController.login);
 
 // router.get('/inventory', funkController.getInventory, (req, res) => res.status(200).json(res.locals.items));
 

@@ -50,10 +50,15 @@ funkController.getRecipes = async (req, res, next) => {
   console.log('Hit getRecipes!!', req.body);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   let keyIndex = 6; //2;
 =======
   let keyIndex = 2; //2;
 >>>>>>> 025b04c (stashing some controller changes)
+=======
+
+  let keyIndex = 5; //2;
+>>>>>>> e891e00 (login routes and middleware added; encryption begun)
   const apiKeys = [
     'f02858b6ebaa4661b821b11a81417390',
     '44bd1c5c07cd4e6c9453253045409cac',

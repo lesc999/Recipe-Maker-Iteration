@@ -62,8 +62,12 @@ funkController.getRecipes = async (req, res, next) => {
 >>>>>>> e891e00 (login routes and middleware added; encryption begun)
 =======
 
+<<<<<<< HEAD
   let keyIndex = 0; //2;
 >>>>>>> 46e36fd (recipe display finished)
+=======
+  let keyIndex = 9; //2;
+>>>>>>> dc0a0a6 (final css tweaks)
   const apiKeys = [
     'f02858b6ebaa4661b821b11a81417390',
     '44bd1c5c07cd4e6c9453253045409cac',
@@ -76,7 +80,8 @@ funkController.getRecipes = async (req, res, next) => {
 =======
     '347fef89c32d43dab1f5649fab8311d5',
     '42d20b6ae42c440181f6208601ce0fbc',
-    '3f88f333956a4e62875b70c68a27346b'
+    '3f88f333956a4e62875b70c68a27346b',
+    'a5d4bd34ff224c4eb19997e034dfdc48'
     
 >>>>>>> 46e36fd (recipe display finished)
   ];

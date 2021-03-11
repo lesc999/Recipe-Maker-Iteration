@@ -62,7 +62,7 @@ function IngredientDisplay({ itemName, use, _id }) {
       {itemName}
       <div className="upDownButtons">
         <button className="deleteButtons" onClick={(e) => deleteIng(e)}>
-        <i class="fa fa-trash"></i>
+        <i className="fa fa-trash"></i>
         </button>
       </div>
     </div>

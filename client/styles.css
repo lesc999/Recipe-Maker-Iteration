@@ -16,13 +16,20 @@ body {
 
 .inventoryContainerSidebar {
   display: flex;
-  flex-grow: 1;
+  flex-direction: column;
+  
+  margin-left: 125px;
+  margin-top: 300px;
 }
+/* 
+.card-deck {
+
+} */
 
 #recipeContainer {
-  display: 'flex';
-  justify-content: 'center';
-  padding-top: '50px';
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
   flex-grow: 3;
 }
 
@@ -107,8 +114,6 @@ body {
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
-
-
 
 /* checkbox experimentation */
 

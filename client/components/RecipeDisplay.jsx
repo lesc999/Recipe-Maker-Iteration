@@ -1,12 +1,12 @@
 import React from 'react';
 import parse from 'html-react-parser';
-import { Card } from 'react-bootstrap';
+import { Card, Accordion, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useInventory, useSetInventory } from '../contexts/InventoryContexts';
 
 function RecipeDisplay(props) {
   const inventory = useInventory();
-  // console.log("instructions", props.recipe.instructions)
+  console.log("instructions", props.recipe.instructions)
   if(!props.recipe.instructions){props.recipe.instructions = "Psh, figure it out."}
 
   // const dietLabels = [vegetarian, vegan, glutenFree, dairyFree].reduce((acc, ele, index) => {
@@ -31,6 +31,7 @@ function RecipeDisplay(props) {
 
   return (
     <div>
+      <Accordion >
       <Card className="p-3" style={{ flex: 1 }}>
         <Card.Header>
           <strong>{props.recipe.title}</strong>
@@ -42,6 +43,10 @@ function RecipeDisplay(props) {
           style={{ maxWidth: '150px' }}
           alt="Food Img"
         />
+        <Accordion.Toggle as={Button} variant="link" eventKey={props.recipe.title}>
+        Show Instructions
+        </Accordion.Toggle>
+        <Accordion.Collapse eventKey={props.recipe.title}>
         <Card.Body>
           <Card.Text>
             <strong>Ingredients: </strong>
@@ -52,10 +57,12 @@ function RecipeDisplay(props) {
             {parse(props.recipe.instructions)}
           </Card.Text>
         </Card.Body>
+        </Accordion.Collapse>
         {/* <Card.Footer>
         <ListGroup horizontal>{dietLabels}</ListGroup>
       </Card.Footer> */}
       </Card>
+      </Accordion>
     </div>
   );
 }

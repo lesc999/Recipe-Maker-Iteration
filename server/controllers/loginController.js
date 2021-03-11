@@ -9,17 +9,10 @@ const loginController = {};
    newPerson = req.body
     const pass = newPerson.password
     const saltRounds = 2
-    bcrypt.hash(pass, saltRounds, (err, hash)=>{
-      if(err){res.send(err)}else{
-      console.log("hashing!")
-    return hashedpw4db= {
-      saltRounds:saltRounds,
-      notEncrypted: pass,
-      encrypted: hash
-    }}
-  })
-  console.log(hashedpw4db, "hashed encryption")
-    Person.create({username: newPerson.username, password: hashedpw4db}, 
+    bcrypt.hash(pass, saltRounds)
+    .then(hash => {
+    console.log(`Hash: ${hash}`);
+    Person.create({username: newPerson.username, password: hash}, 
       (err, result) =>{
         if(err){
         return res.status(400).json(err)
@@ -27,18 +20,22 @@ const loginController = {};
         return res.status(200).json(result)
       }
     });
-  }
+  })}
+   
 
   loginController.login = (req, res) =>{
-    Person.findOne({username: req.body.username, password: req.body.password}, (err, people) =>{
-      if(err){
-        return res.status(400).json(err)
-      }else if(!people){res.status(401).send("no dice, bruh")}
-      else{
-        res.redirect('http://localhost:3000/')
-      }
-    })
-  }
+    Person.findOne({username: req.body.username}, (err, results) =>{
+      console.log("hash?", results)
+      bcrypt.compare(req.body.password, results.password)
+      .then(result => {
+        console.log(res, "true or false pw compare")
+        if(result){
+          res.redirect('http://localhost:3000/')
+        }
+    }
+    )
+    .catch(err => res.status(401).send("no dice"))
+  })}
 
 
   // loginController.login = (req, res) =>{

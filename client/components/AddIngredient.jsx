@@ -9,7 +9,7 @@ function AddIngredient({ bucketNumber }) {
 
   function addIng(ing) {
     if (inventory[ing]) return window.alert('Already in inventory!');
-    const tempIng = { [ing]: { itemName: `${ing}`, bucketNumber: bucketNumber, use: false } };
+    const tempIng = { [ing]: { itemName: `${ing}`, bucketNumber: bucketNumber, use: false} };
     const newBucket = { ...inventory, ...tempIng };
     axios
       .post('./api/inventory', tempIng)

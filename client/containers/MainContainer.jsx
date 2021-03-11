@@ -8,8 +8,11 @@ import { useHomePageView } from '../contexts/HomePageViewContext';
 function MainContainer() {
 
   const homePageView = useHomePageView()
+  
 
   if (homePageView) {
+    
+    
     return (
       <div style={{ display: 'flex' }}>
         <InventoryProvider>
@@ -21,6 +24,7 @@ function MainContainer() {
       </div>
     );
   } else {
+    
     return (
       <div style={{ display: 'flex' }}>
         <InventoryProvider>

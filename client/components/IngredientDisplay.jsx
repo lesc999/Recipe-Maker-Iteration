@@ -12,7 +12,7 @@ function IngredientDisplay({ itemName, use, _id }) {
   const inventory = useInventory();
   const setInventory = useSetInventory();
 
-  let color = use ? '#6cb87e' : '#ffa166';
+  let color = use ? '#fff' : '#fff';
   /**
    * This function will delete this ingredient.
    * Delete request will be sent to the server to delete this ingredient from the database
@@ -58,11 +58,11 @@ function IngredientDisplay({ itemName, use, _id }) {
 
   return (
     <div className="ingredientDisplay" style={{ backgroundColor: color }}>
+      <input className='checkbox' type="checkbox" onChange={(e) => checkMarked(e)} autoComplete="on" />
       {itemName}
-      <input type="checkbox" onChange={(e) => checkMarked(e)} autoComplete="on" />
       <div className="upDownButtons">
-        <button className="buttons" onClick={(e) => deleteIng(e)}>
-          X
+        <button className="deleteButtons" onClick={(e) => deleteIng(e)}>
+        <i class="fa fa-trash"></i>
         </button>
       </div>
     </div>

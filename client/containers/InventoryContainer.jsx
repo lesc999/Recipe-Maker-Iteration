@@ -13,6 +13,10 @@ function InventoryContainer() {
   const setRecipe = useSetRecipe();
   const homePageView = useHomePageView();
   const setHomePageView = useSetHomePageView();
+  let containerClass;
+  
+  if (homePageView) containerClass = 'inventoryContainer'
+  else containerClass = 'inventoryContainerSidebar'
 
 
   // this works like componentDidMount and willMount
@@ -67,9 +71,9 @@ function InventoryContainer() {
 
   return (
     // three buckets with data passed down for each bucket
-    <div className="inventoryContainer">
+    <div id='inventoryContainer' className={containerClass}>
       {InventoryBuckets}
-      <button onClick={getRecipes}>Submit</button>
+      <button id='submitBtn' onClick={getRecipes}>Submit</button>
     </div>
   );
 }

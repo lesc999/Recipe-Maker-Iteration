@@ -8,7 +8,8 @@ function InventoryBucket({ bucket, bucketNumber }) {
   if (Object.keys(bucket)[0]) {
     Object.values(bucket).forEach((ing, index) => {
       IngredientsDisplay.push(
-        <IngredientDisplay key={`b${bucketNumber}id${index}`} itemName={ing.itemName} use={ing.use} _id={ing._id} />
+        <IngredientDisplay key={`b${bucketNumber}id${index}`} 
+        itemName={ing.itemName} use={ing.use} _id={ing._id} />
       );
     });
   }

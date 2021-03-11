@@ -13,7 +13,7 @@ function useSetHomePageView() {
   return useContext(SetHomePageViewContext);
 }
 
-function HomePageViewProvider( { children } ) {
+function HomePageViewProvider({ children }) {
 
   const [homePageView, setHomePageViews] = useState(true);
 

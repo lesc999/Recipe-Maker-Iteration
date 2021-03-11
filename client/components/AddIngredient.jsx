@@ -33,7 +33,7 @@ function AddIngredient({ bucketNumber }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" value={ing} onChange={(e) => setIng(e.target.value)} placeholder="Add Ingredient.." />
+      <input id="addInput" type="text" value={ing} onChange={(e) => setIng(e.target.value)} placeholder="Add an Ingredient.." />
     </form>
   );
 }

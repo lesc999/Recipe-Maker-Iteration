@@ -8,7 +8,7 @@ describe('db unit tests', () => {
   let connection;
   let db;
 
-  const MONGO_URI = `mongodb+srv://DavidB:DavidB@cluster0.gkvfy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+  const MONGO_URI = `mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@cluster0.gkvfy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
   //console.log(9999999, MONGO_URI)
   beforeAll(async () => {
     connection = await MongoClient.connect(MONGO_URI, {
